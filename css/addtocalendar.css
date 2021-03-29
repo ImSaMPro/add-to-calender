@@ -1,0 +1,93 @@
+.addevent {
+  background-color: #fff;
+  font-family: Arial;
+  font-size: 14px;
+  display: inline-block;
+  box-shadow: 0.25px 0.75px 2.75px 0.25px #ddd;
+  visibility: visible;
+  position: relative;
+  cursor: pointer;
+}
+.addevent:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASklEQVQ4jWNgQAX/GfADrPL/kST+o4n9JyCPySFgAFY92BQTi3H7iwiA0wBs/sVHU98AYgGGAeTS1DOAVEC2C2hnAKmAekmZIgAAWgZnmVNBBskAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  left: 10px;
+  top: 10px;
+}
+.addevent:focus,
+.addevent:hover {
+  background-color: #eee !important;
+}
+.addevent span {
+  display: block;
+  line-height: 16px;
+  padding: 10px 12px 10px 32px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cal-clients {
+  background-color: #fff;
+  width: 230px;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  border: 1px solid #ddd;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 10px 26px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 10px 26px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 10px 26px;
+  transform: scale(0.98, 0.98) translateY(5px);
+  transition: transform 0.15s ease;
+}
+.cal-clients.is-open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1, 1) translateY(0px);
+  z-index: 999999;
+  left: -20px;
+  top: -30px;
+}
+.cal-clients > li {
+  background-repeat: no-repeat;
+  background-position: 14px;
+  padding: 10px 14px 10px 36px;
+  border-bottom: 1px solid #ddd;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cal-clients > li:last-child {
+  border-bottom: none;
+}
+.cal-clients > li:hover {
+  background-color: #f9f9f9;
+}
+.cal-clients > li.google {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACHklEQVQ4jWNgwALu9/cLfJjQXvqhtXbl+9aatR96mzteT+hUx6YWBdzoLOP9UFe276Wvw79Xzqb/UbCL+f+3hen33k/tMsCq+dXUPpW3yRGfMTSi4ddR/j/+z5zJiqL5dm4u+9vkyI/ICt8khn59V1N89ENj5a53+SlPX7ma/3/l7/Tv87QJoRi2f55fuRyu2dX8/4fOhnn/GRgYkdV8nNQT/WFqbziG5v//GRh/HpL//XOrx/9XHub/3zVXbiUYWMjgx7Vi1997WP//3sP6/8dBy9/vZs7kR5bv2vhtSvvGb8uw4WlbPigx/L6WWQMz4NdJizfoFoRP+vLLqfXLf2x4wvZveQy/r2VVwwz4ecLiLSkGTNz2rYzh+80yZ5gBJ4/6/G44MYkP2YDWdd/W1q3+dgCGvbs+/4MZMHPn1wCG//8ZGH8cUvq14HDqf7OVIf8rj/biDMT+bV8DYJq9uj7/a5j/n4OBgYGBYfqJnmUmK4L/m6wI/m+2MvR//YlJCxn+o0bjhL2n7KKmfPkBM6Bs2dfLcMncbbnsUduLPsAMMVkR/D9wS/a3gv1tJ0oOd+xP2lX52HJV+P/07TP+u3a8/+/b8/nf1F1fUJP0tEtLlcK3F35CNgQbjtlW92fCjs85WP1YsrObu/Jo907HtbF/0TWarQz5n7S7+ln/6fkOuMIIxaDO03Ny6k9MWlh/fOLK1lMz2npOzNPCphYAFk+bEHlmFVMAAAAASUVORK5CYII=);
+}
+.cal-clients > li.outlook {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAABMUlEQVQokZ3Sv0tDMRDA8a900M1dEBcn6X/h5KKD1NFVqNgmefU3oou4qRQ6F9ys4CgiltI2uSyKXcR/wMVREEEEn4PF10df68ODGxLuwyWXQGKEI+Qb02i/hPL7yTUAuVqGUiOLaS+j5ATjmmh5xUjYzbfBWMt7T2FSDsHD4Q+eK49yUB2LZa6WSYe17yTsP8axcmcU7TxFOR6KA/uAdqcR1t6zWp9CuTqlRhblLvqx+yTwFZTcYySkp+suRbuOkZCiPcLYlQi3djDulsBXMPLxa6KjyBZKSl18iGkX4p3dS9+9o4Vrkm9OouSKtdYMxl3/MbCwf2DGLWJsNcW0w3RPFcg52ndiaWw5HR78w9wTWr7+hwE278YpyCzGbqPlEi3P6XFSbNxMoN0CSvYGlXwDj3F3EqNxKVcAAAAASUVORK5CYII=);
+}
+.cal-clients > li.yahoo {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB0UlEQVQ4jZVTz0sbQRidY+NmJ4KHFlpEELEnm/YvkOLBW0978SC7O7sLO7OmmEYxtYf2oCAqIhpJBEFBRLE9FdSDIBospe1BpWBYSyn1Znppi+IG4XmIbjZJqfGDd5hv5nvfrzeEVJhWZz3RwiLDqDjSqSgUYbtM5mlVMqOV732ziFXHZD5nRBz8D1pYZBSihKqCdVlkbwq+BpPFdhlJLZmrSXja77nWILO+B1ZDzD+rkhklWlhkjIiDoaej2FnYxfmph721A4w/m4Jz/wVePn7jI9E6iIvCBUY6J4pVUDFDGBVHwSwbk5v4k/+LeEsS8ZYkduZ38fPgGIvxFSRaBwEAz5v6rwh4juhUFIIEVkMM7odv2N/4iuGOMXxc+Qx+Lw4j4iDW2IeT7/nSHKjtVREYEQeJh69wfuohl3Vh3+31/bHGPnx6+6WSwHb/NbD8j194P7Je5uttHsBwx1hJE5QfEibzdPBRz4MElgfe4ez3GXJZF0v9q/5d8tFrpLpmS1ugYpqokhm9rQau0S0ZbUUtXK3yNtApT/lKVIgSYrLYrlmFYbHVTtrvlP0HhSihWirRKU9VBQdNlcwoo2KGUZ5j1PYYtT2N8kOVimm/54BdAqO0smuuTyDCAAAAAElFTkSuQmCC);
+}
+.cal-clients > li.other {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACNUlEQVQ4jZ2T3U9ScRjHf9x12V3X2h/AXWtrq9M6WevlLgxabgxq44KXo9B0yPDkld3o5tIabkizF4aApEPZycqLknaGCAc7R2C8+BKW0Na9O3y7UBgHbW0+27Nn+372++x5Ln6EHJXO6TzXmHqGPavXs2das3ZG2ktrZ32NqXMMM/cYF9WatTPFY9zvxAtTDxpz6fFdbPRcVGTtDNpOViGw2Hrd6O5IjZiNntijW5HMwwuvRsxGD7o7UicxpUB7fuUUrW8K7LlKwp77iT5xF7a1PJh0GUy6DNtaHn3iLizfxCYbSooYSoroL1RvNwVscX+FLe7DmcjC6o/CwcXh4OKw+qNwJrIwTc402dysD3OzPrD5PUohYEIcXEIJDi6OgVUBA6sCHFwcLqGEVja9HMP0cuwUgnQRvcEFTITfwfth6bigdc32EyzjEwjOW1HjadR4GrGAHk/n3xibgvHt38UDuQ4A6P+agUsowSWU4Exk4ZZ2EHxvBiQKkCjURQqZ2DVEwzqBEKIihBByZ33787NyFQdyHcaxKVj9UTAhDqbJGTxZ/IgaT+NP4iogUYh4u5CK0qjytGywGNSH/0DYeq3J7Kw/36ruDaYKmcFUIcNu7qaHi79S7i98tsbT8IzeRGjqBiLeLkCilAJ7rvLdlq3gxN78gUCUgSxS4N5eR108PGUh9EBqnkA+bajJYvLKv/qy76UxHNAIVZ6WqzwthwMawTRmvnTsR/6nVAaLQX20tqoR/gVjZxK5lhDPugAAAABJRU5ErkJggg==);
+}
